@@ -1348,10 +1348,13 @@ figcaption {
   font-size: 11px;
   white-space: nowrap;
 }
-.hero-about-link > span {
+.hero-about-link > .arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
   transition: transform 0.3s;
 }
-.hero-about-link:hover > span {
+.hero-about-link:hover > .arrow {
   transform: translate(3px, -3px);
 }
 .hero-project-note {

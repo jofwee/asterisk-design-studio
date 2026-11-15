@@ -70,7 +70,7 @@ export function Hero() {
               Explore our work <Arrow />
             </Link>
             <Link className="hero-about-link" to="/about">
-              Discover the studio <span aria-hidden="true">↗</span>
+              Discover the studio <Arrow />
             </Link>
           </div>
         </m.div>
