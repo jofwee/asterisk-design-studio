@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141413" />
+    <meta
+      name="description"
+      content="Architecture and architectural visualization — Asterisk Design Studio."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      rel="preload"
+      href="/node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="72x72"
+      href="/brand/favicon-b438df9f4d.png"
+    />
+    <title>Asterisk Design Studio</title>
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      try {
+        const theme = localStorage.getItem("asterisk-theme");
+        if (theme === "light" || theme === "dark")
+          document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
