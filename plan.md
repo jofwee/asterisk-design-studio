@@ -73,15 +73,16 @@ The distinctive composition will come from alternating full-width establishing v
 
 | Token | Dark default | Light mode |
 | --- | --- | --- |
-| Background | Warm charcoal `#141413` | Warm paper `#F3F0EA` |
-| Raised surface | `#1E1E1B` | `#E8E4DC` |
-| Primary text | `#F3F0EA` | `#191917` |
-| Secondary text | `#B8B4AC` | `#5D5952` |
-| Rules | `#393833` | `#CEC8BD` |
+| Background | Blue graphite `#131D24` | Cool paper `#EDF1F3` |
+| Raised surface | `#1C2932` | `#DFE6EA` |
+| Primary text | `#EEF2F4` | `#1D303D` |
+| Secondary text | `#A3B1B9` | `#516570` |
+| Rules | `#344651` | `#C4D0D7` |
+| Bronze accent | `#C2A184` | `#785A42` |
 
 These are starting tokens, subject to contrast checks. Let the logo and warm render lighting supply color; avoid decorative gradients and arbitrary accent colors.
 
-- Start with one carefully chosen sans-serif family, a large regular-weight display scale, readable body text, and compact metadata. Use a system font fallback while font licensing and files are settled.
+- Use self-hosted Barlow Condensed at weight 500 for uppercase display headings, Manrope for body copy and navigation, and system monospace for technical captions. Avoid the reference's serif/sans pairing. Preload and prepare both webfonts before page entrances.
 - Use fluid type and spacing with `clamp()`. Keep descriptions comfortably readable and avoid huge empty sections when content is only a placeholder.
 - Use square image edges and subtle borders. Avoid pill-shaped navigation everywhere, floating dashboard cards, glass effects, oversized shadows, and decorative blobs.
 - Every layout decision should improve the presentation of a project or navigation through the work.

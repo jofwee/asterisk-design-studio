@@ -45,7 +45,7 @@ function ThemeToggle() {
     document.documentElement.dataset.theme = next;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", next === "dark" ? "#141413" : "#f3f0ea");
+      ?.setAttribute("content", next === "dark" ? "#131d24" : "#edf1f3");
     try {
       localStorage.setItem("asterisk-theme", next);
     } catch {

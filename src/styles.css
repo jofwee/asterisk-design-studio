@@ -6,6 +6,14 @@
   src: url("@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2")
     format("woff2");
 }
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("@fontsource/barlow-condensed/files/barlow-condensed-latin-500-normal.woff2")
+    format("woff2");
+}
 
 :root {
   font-family: "Manrope Variable", Arial, sans-serif;
@@ -14,23 +22,23 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --bg: #141413;
-  --surface: #1e1e1b;
-  --text: #f3f0ea;
-  --muted: #aaa79f;
-  --line: #393833;
-  --accent: #b4a092;
+  --bg: #131d24;
+  --surface: #1c2932;
+  --text: #eef2f4;
+  --muted: #a3b1b9;
+  --line: #344651;
+  --accent: #c2a184;
   --gutter: clamp(22px, 4.2vw, 84px);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #f3f0ea;
-  --surface: #e8e4dc;
-  --text: #191917;
-  --muted: #625d55;
-  --line: #cec8bd;
-  --accent: #887267;
+  --bg: #edf1f3;
+  --surface: #dfe6ea;
+  --text: #1d303d;
+  --muted: #516570;
+  --line: #c4d0d7;
+  --accent: #785a42;
   color-scheme: light;
 }
 * {
@@ -279,7 +287,7 @@ figcaption {
   align-items: center;
   gap: 38px;
   padding: 14px 18px;
-  background: #f3f0ea;
+  background: #eef2f4;
   color: #191917;
   font-size: 11px;
 }
@@ -1211,28 +1219,28 @@ figcaption {
   background:
     linear-gradient(
       90deg,
-      #141413 0%,
-      rgba(20, 20, 19, 0.94) 18%,
-      rgba(20, 20, 19, 0.55) 42%,
-      rgba(20, 20, 19, 0.06) 75%
+      #131d24 0%,
+      rgba(19, 29, 36, 0.94) 18%,
+      rgba(19, 29, 36, 0.55) 42%,
+      rgba(19, 29, 36, 0.06) 75%
     ),
     linear-gradient(
       0deg,
-      rgba(20, 20, 19, 0.9) 0%,
+      rgba(19, 29, 36, 0.9) 0%,
       transparent 30%,
-      rgba(20, 20, 19, 0.15) 100%
+      rgba(19, 29, 36, 0.15) 100%
     );
 }
 :root[data-theme="light"] .hero-shade {
   background:
     linear-gradient(
       90deg,
-      #f3f0ea 0%,
-      rgba(243, 240, 234, 0.95) 18%,
-      rgba(243, 240, 234, 0.6) 40%,
-      rgba(243, 240, 234, 0.02) 75%
+      #edf1f3 0%,
+      rgba(237, 241, 243, 0.95) 18%,
+      rgba(237, 241, 243, 0.6) 40%,
+      rgba(237, 241, 243, 0.02) 75%
     ),
-    linear-gradient(0deg, rgba(243, 240, 234, 0.95), transparent 30%);
+    linear-gradient(0deg, rgba(237, 241, 243, 0.95), transparent 30%);
 }
 .hero-guide {
   position: absolute;
@@ -1261,7 +1269,7 @@ figcaption {
 }
 .hero-topline > .eyebrow:last-child {
   color: #eee9df;
-  text-shadow: 0 1px 15px #141413;
+  text-shadow: 0 1px 15px #131d24;
 }
 .hero-content {
   padding-top: clamp(95px, 12vh, 170px);
@@ -1300,10 +1308,10 @@ figcaption {
   transform-origin: left bottom;
 }
 .hero-line:last-child {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.065em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 .hero-description {
   margin-top: 39px;
@@ -1365,10 +1373,10 @@ figcaption {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  color: #f3f0ea;
-  border-top: 1px solid #f3f0ea70;
+  color: #eef2f4;
+  border-top: 1px solid #eef2f470;
   padding: 20px 0 0;
-  text-shadow: 0 1px 10px #14141380;
+  text-shadow: 0 1px 10px #131d2480;
 }
 .hero-project-note .eyebrow {
   color: #e0dacf;
@@ -1693,26 +1701,26 @@ figcaption {
   }
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(20, 20, 19, 0.88), rgba(20, 20, 19, 0.22)),
+      linear-gradient(90deg, rgba(19, 29, 36, 0.88), rgba(19, 29, 36, 0.22)),
       linear-gradient(
         0deg,
-        #141413 0%,
-        rgba(20, 20, 19, 0.15) 55%,
-        rgba(20, 20, 19, 0.5) 100%
+        #131d24 0%,
+        rgba(19, 29, 36, 0.15) 55%,
+        rgba(19, 29, 36, 0.5) 100%
       );
   }
   :root[data-theme="light"] .hero-shade {
     background:
       linear-gradient(
         90deg,
-        rgba(243, 240, 234, 0.92),
-        rgba(243, 240, 234, 0.15)
+        rgba(237, 241, 243, 0.92),
+        rgba(237, 241, 243, 0.15)
       ),
       linear-gradient(
         0deg,
-        #f3f0ea 0%,
-        rgba(243, 240, 234, 0.12) 55%,
-        rgba(243, 240, 234, 0.5) 100%
+        #edf1f3 0%,
+        rgba(237, 241, 243, 0.12) 55%,
+        rgba(237, 241, 243, 0.5) 100%
       );
   }
   .hero-topline {
@@ -2365,4 +2373,61 @@ html[data-route-transition="true"] main * {
   transform-origin: left center;
   z-index: 100;
   pointer-events: none;
+}
+
+/* Studio identity: condensed architectural display type and technical captions. */
+h1,
+h2,
+.contact-title {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.hero-headline {
+  font-size: clamp(96px, 12.4vw, 224px);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  margin-left: 0;
+}
+.hero-line:last-child {
+  font-size: 1em;
+  letter-spacing: inherit;
+}
+.section-heading h2,
+.detail-copy h2,
+.studio-layout h2 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+.eyebrow,
+.section-label,
+figcaption,
+.project-caption-meta,
+.hero-count {
+  font-family:
+    ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+.section-label > span:first-child,
+.title-period {
+  color: var(--accent);
+}
+@media (max-width: 1000px) {
+  .hero-headline {
+    font-size: 13vw;
+  }
+}
+@media (max-width: 700px) {
+  .hero-headline {
+    font-size: clamp(56px, 13.8vw, 96px);
+    line-height: 0.96;
+  }
+  .hero-line:last-child {
+    font-size: 1em;
+    letter-spacing: 0.005em;
+  }
 }

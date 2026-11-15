@@ -38,8 +38,10 @@ export function preloadPage(pathname: string): Promise<unknown> {
 
 let fontsReady: Promise<unknown> | undefined;
 export function prepareFonts() {
-  return (fontsReady ??= document.fonts
-    .load('400 16px "Manrope Variable"')
+  return (fontsReady ??= Promise.all([
+    document.fonts.load('400 16px "Manrope Variable"'),
+    document.fonts.load('500 16px "Barlow Condensed"'),
+  ])
     .then(() => document.fonts.ready)
     .catch(() => undefined));
 }
