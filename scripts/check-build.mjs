@@ -15,6 +15,7 @@ console.log(
 if (js > 150 * 1024 || css > 50 * 1024)
   throw new Error("Bundle budget exceeded");
 for (const name of await readdir("dist/images")) {
-  if ((await stat(`dist/images/${name}`)).size > 2_000_000)
-    throw new Error(`Image budget exceeded: ${name}`);
+  const limit = name.endsWith(".mp4") ? 20_000_000 : 2_000_000;
+  if ((await stat(`dist/images/${name}`)).size > limit)
+    throw new Error(`Media budget exceeded: ${name}`);
 }

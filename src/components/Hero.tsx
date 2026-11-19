@@ -1,17 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { m, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { Arrow, ProjectImage } from "./UI";
 import { imageNames } from "../content/site";
-import { HOME_REPLAY_EVENT } from "./HomeLink";
+import views from "../content/showcase.json";
 const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
-  const [entrance, setEntrance] = useState(0);
-  useEffect(() => {
-    const replay = () => setEntrance((value) => value + 1);
-    window.addEventListener(HOME_REPLAY_EVENT, replay);
-    return () => window.removeEventListener(HOME_REPLAY_EVENT, replay);
-  }, []);
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -37,7 +31,7 @@ export function Hero() {
         />
       </m.div>
       <div className="hero-shade" />
-      <div key={entrance} className="hero-content">
+      <div className="hero-content">
         <h1
           id="hero-heading"
           className="hero-headline"
@@ -97,7 +91,7 @@ export function Hero() {
         <span className="hero-medium">Architectural visualization</span>
         <span className="hero-count">
           <b>01</b>
-          <span>/</span>05 views
+          <span>/</span>{views.length} views
         </span>
       </div>
     </section>

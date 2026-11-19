@@ -42,7 +42,11 @@ This workspace has not been linked to a Vercel account or deployed. No Vercel cr
 - Routing, navigation, and theme persistence: `src/main.tsx`.
 - Original design and implementation requirements: `plan.md`.
 
-The five supplied renders are presented as a single provisional project, using `Scene 4_1.png` as its temporary name. Other views retain their original filenames. Missing contact values are plain text, without fake destinations. Team member names, roles, portraits, service descriptions, and studio information are placeholders to replace or confirm before launch. No portraits or new architectural images were generated.
+The supplied renders are presented as one provisional studio project, using `Scene 4_1.png` as its temporary name. Gallery views retain their filenames and can be filtered by exterior or interior. Run `node scripts/prepare-showcase.mjs` to refresh thumbnails and responsive images from the source folder.
+
+The walkthrough uses a compressed MP4 in `public/images` and loads only after a visitor selects Play. To move it to Cloudflare, replace `walkthroughUrl` in `src/components/Showcase.tsx` with the hosted MP4 URL and remove the local video once the new URL works.
+
+Missing contact values, portraits, five team profiles, and the logo construction artwork remain placeholders. The firm background, mission, vision, logo story, and service names are based on the supplied studio brief.
 
 ## Transparent logo
 
@@ -54,7 +58,7 @@ The studio identity uses self-hosted Barlow Condensed for upright uppercase disp
 
 Scroll reveals slide content horizontally with eased motion. The home page staggers section labels, headings, and project imagery; image reveals combine lateral movement with a soft crop opening. The detail section brings its text and image in from opposite sides. Reveals run once per page mount, avoid horizontal document overflow, and remove movement and staggering for reduced-motion preferences.
 
-The home page uses natural browser scrolling without wheel interception, forced section snapping, or automatic section movement. The sticky header includes an explicit Home link on desktop and mobile; Home and the logo return to the landing section and replay its title entrance. Initial animations also run on refresh, while respecting reduced-motion preferences.
+The home page uses natural browser scrolling without wheel interception, forced section snapping, or automatic section movement. The sticky header includes an explicit Home link on desktop and mobile. Home and the logo return visitors to the top without restarting the hero animation when they are already on Home. The entrance runs when the home page loads and respects reduced-motion preferences.
 
 Scrollbars use thin, theme-aware styling, and the root reserves a stable scrollbar gutter so short pages such as Contact keep the same layout width. Route transitions preload internal pages on hover/focus and wait for the route module and both display/body fonts. During loading, the current page stays visible at its existing scroll position with scrolling and content interaction temporarily locked; a thin loading bar appears at the top. Once ready, the old page fades out and the new page enters. Newer navigation cancels any older pending page change. Both fonts are also preloaded from the HTML. Failed page loads retain the retry screen. There is no artificial loading delay. Reduced motion removes the fades.
 

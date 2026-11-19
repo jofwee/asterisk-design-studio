@@ -213,8 +213,6 @@ function Site() {
       delete root.dataset.routeTransition;
       setLoading(false);
       window.scrollTo({ top: 0, behavior: "instant" });
-      if (location.pathname === "/")
-        window.dispatchEvent(new Event("asterisk:return-home"));
       return;
     }
     root.dataset.routeTransition = "true";
@@ -242,8 +240,10 @@ function Site() {
     };
   }, [location.pathname]);
   useLayoutEffect(() => {
-    if (!loading && displayedLocation)
-      document.getElementById("main")?.focus({ preventScroll: true });
+    if (!loading && displayedLocation) {
+      const anchor = document.getElementById(displayedLocation.hash.slice(1));
+      (anchor ?? document.getElementById("main"))?.focus({ preventScroll: true });
+    }
   }, [loading, viewVersion]);
   const Projects = readyPages.projects ?? EmptyPage;
   const Project = readyPages.project ?? EmptyPage;

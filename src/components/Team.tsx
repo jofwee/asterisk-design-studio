@@ -1,18 +1,16 @@
 import { Reveal, SectionLabel } from "./UI";
-import { copy, team } from "../content/site";
+import { team } from "../content/site";
 export function Team() {
   return (
     <section className="team-section" id="team">
       <Reveal>
         <div className="section-top">
           <SectionLabel number="05">The people</SectionLabel>
-          <span className="eyebrow">The studio team</span>
         </div>
         <div className="section-heading">
           <h2>
             Meet the team<span className="title-period">.</span>
           </h2>
-          <p>{copy.short}</p>
         </div>
       </Reveal>
       <div className="team-grid">

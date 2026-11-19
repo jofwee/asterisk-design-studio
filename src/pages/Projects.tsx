@@ -1,5 +1,5 @@
 import { ProjectCard, SectionLabel } from "../components/UI";
-import { copy } from "../content/site";
+import { RenderGallery } from "../components/Showcase";
 export default function Projects() {
   return (
     <>
@@ -9,10 +9,13 @@ export default function Projects() {
           <h1>
             Selected works<span className="title-period">.</span>
           </h1>
-          <p>{copy.short}</p>
+          <p>
+            Explore exterior and interior renderings for Asterisk Design Studio.
+          </p>
         </div>
       </section>
       <section className="project-index">
+        <RenderGallery />
         <ProjectCard eager />
       </section>
     </>

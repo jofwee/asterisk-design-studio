@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { m, useReducedMotion } from "motion/react";
 import assets from "../content/assets.json";
+import views from "../content/showcase.json";
 import { copy, projectName } from "../content/site";
 
 export type ImageId = keyof typeof assets.images;
@@ -185,7 +186,7 @@ export function ProjectCard({ eager = false }: { eager?: boolean }) {
         </div>
         <div className="project-caption-meta">
           <span>Studio exterior</span>
-          <span>05 views</span>
+          <span>{views.length} views</span>
         </div>
       </div>
     </Link>

@@ -36,13 +36,15 @@ test("routes, images, theme persistence, history, and missing projects", async (
   await page.getByRole("button", { name: "Switch to light mode" }).click();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await expect(page.locator(".team-card")).toHaveCount(4);
+  await expect(page.locator(".team-card")).toHaveCount(6);
   await expect(page.locator(".team-card img")).toHaveCount(0);
   await expect(
     page.getByRole("heading", { name: "Meet the team." }),
   ).toHaveCount(1);
-  await expect(page.locator(".service-row")).toHaveCount(3);
-  await expect(page.locator("main")).toContainText("Lorem ipsum");
+  await expect(page.locator(".service-row")).toHaveCount(4);
+  await expect(
+    page.getByRole("heading", { name: "Mission", exact: true }),
+  ).toBeVisible();
   await page
     .getByRole("link", { name: "View Scene 3_1.png", exact: true })
     .click();
@@ -77,6 +79,126 @@ test("routes, images, theme persistence, history, and missing projects", async (
   await page.goto("/missing");
   await expect(page.locator("h1")).toHaveText("Page not found");
   expect(failures).toEqual([]);
+});
+
+test("gallery jumps to the chosen render and video loads only on request", async ({
+  page,
+}) => {
+  const videoRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().endsWith("/studio-walkthrough-v1.mp4"))
+      videoRequests.push(request.url());
+  });
+  await page.goto("/");
+  const play = page.getByRole("button", { name: "Play walkthrough" });
+  await play.scrollIntoViewIfNeeded();
+  expect(videoRequests).toEqual([]);
+  await play.click();
+  await expect
+    .poll(() => page.locator("video").evaluate((video) => video.readyState))
+    .toBeGreaterThan(0);
+  expect(videoRequests.length).toBeGreaterThan(0);
+  await page.getByRole("button", { name: /Open render gallery/ }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Render gallery" }),
+  ).toBeVisible();
+  await page
+    .getByRole("dialog", { name: "Render gallery" })
+    .getByRole("link", { name: "Image(13).png", exact: true })
+    .click();
+  await expect(page).toHaveURL(/project-01#view-image-13$/);
+  const view = page.locator("#view-image-13");
+  await expect(view).toBeFocused();
+  await expect(view).toBeInViewport();
+  await view.getByRole("button", { name: "Back to gallery" }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Render gallery" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Interiors", exact: true }).click();
+  await expect(page.locator(".showcase-thumbnails a")).toHaveCount(18);
+  await page
+    .locator(".showcase-thumbnails")
+    .getByRole("link", { name: "Image(11).png", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#view-image-11$/);
+  await expect(page.locator("#view-image-11")).toBeInViewport();
+  await expect(
+    page.getByRole("dialog", { name: "Render gallery" }),
+  ).toBeHidden();
+  await page
+    .getByRole("navigation", { name: "Main navigation", exact: true })
+    .getByRole("link", { name: "Projects", exact: true })
+    .click();
+  const galleryButton = page.getByRole("button", {
+    name: /Open render gallery/,
+  });
+  await galleryButton.click();
+  await expect(
+    page.getByRole("dialog", { name: "Render gallery" }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(
+    page.getByRole("dialog", { name: "Render gallery" }),
+  ).toBeHidden();
+  await expect(galleryButton).toBeFocused();
+});
+
+test("the gallery shows loading previews and stays usable if a thumbnail fails", async ({
+  page,
+}) => {
+  let releasePreview!: () => void;
+  const delayed = new Promise<void>((resolve) => {
+    releasePreview = resolve;
+  });
+  await page.route("**/images/view-scene-3-1-*-320.webp", async (route) => {
+    await delayed;
+    await route.continue();
+  });
+  await page.route("**/images/view-scene-4-1-*-320.webp", (route) =>
+    route.abort(),
+  );
+  try {
+    await page.goto("/projects");
+    await page.getByRole("button", { name: /Open render gallery/ }).click();
+    const dialog = page.getByRole("dialog", { name: "Render gallery" });
+    const loader = dialog.getByRole("status", {
+      name: "Loading gallery previews",
+    });
+    await expect(loader).toBeVisible();
+    await expect(dialog.getByText("Preview unavailable")).toBeVisible();
+    releasePreview();
+    await expect(loader).toBeHidden();
+    await expect(
+      dialog.getByRole("link", { name: /Scene 4_1.png/ }),
+    ).toBeVisible();
+  } finally {
+    releasePreview();
+  }
+});
+
+test("home interiors rotate in view and support manual navigation", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const section = page
+    .getByRole("region", { name: "Interior perspectives.", exact: true })
+    .filter({
+      has: page.getByRole("heading", { name: "Interior perspectives." }),
+    });
+  await section.locator(".interior-track").scrollIntoViewIfNeeded();
+  await expect(section.getByText("View 2 of 6", { exact: true })).toBeVisible({
+    timeout: 9000,
+  });
+  await section.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(section.getByText("View 3 of 6", { exact: true })).toBeVisible();
+  await expect(
+    section.getByRole("button", { name: /rotation/i }),
+  ).toHaveCount(0);
+  await section
+    .getByRole("link", { name: "Open full-size render: Workstations" })
+    .click();
+  await expect(page).toHaveURL(/project-01#view-image-2$/);
+  await expect(page.locator("#view-image-2")).toBeFocused();
 });
 
 test("responsive layouts, mobile menu, reduced motion, and screenshots", async ({
@@ -161,12 +283,19 @@ test("wheel scrolling follows input freely without snapping or automatic movemen
   await expect
     .poll(() => page.evaluate(() => window.scrollY))
     .toBeGreaterThan(position + 1800);
-  await page
+  const hero = await page.locator("#hero-heading").elementHandle();
+  const home = page
     .getByRole("navigation", { name: "Main navigation", exact: true })
-    .getByRole("link", { name: "Home", exact: true })
-    .click();
+    .getByRole("link", { name: "Home", exact: true });
+  await home.click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2);
   await expect(page.locator("#hero-heading")).toBeInViewport();
+  await home.click();
+  expect(
+    await hero?.evaluate(
+      (el) => el === document.getElementById("hero-heading"),
+    ),
+  ).toBe(true);
 });
 
 test("landing animation runs on initial load, refresh, and repeated refresh", async ({
