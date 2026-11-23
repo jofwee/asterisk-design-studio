@@ -51,7 +51,7 @@ export function RenderGallery({
         onClick={openGallery}
         aria-haspopup="dialog"
       >
-        Open render gallery <span>{views.length} views</span>
+        Open actual studio <span>{views.length} views</span>
       </button>
       <dialog
         ref={dialog}

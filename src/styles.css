@@ -167,12 +167,6 @@ figcaption {
   padding: 9px 14px;
   display: block;
 }
-.brand img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 800/364;
-  object-fit: contain;
-}
 .desktop-nav {
   margin-left: auto;
   display: flex;
@@ -1171,14 +1165,6 @@ figcaption {
   padding: 0;
   background: transparent;
 }
-.brand img {
-  height: 65px;
-  aspect-ratio: auto;
-  object-fit: contain;
-}
-:root[data-theme="dark"] .brand img {
-  filter: brightness(0) invert(1);
-}
 .reading-progress {
   position: fixed;
   top: 0;
@@ -1663,9 +1649,6 @@ figcaption {
   .brand {
     width: 115px;
   }
-  .brand img {
-    height: 53px;
-  }
   .landing-hero {
     height: auto;
     min-height: calc(100svh - 88px);
@@ -1972,13 +1955,15 @@ figcaption {
   height: auto;
   flex-shrink: 0;
 }
-.brand img {
-  position: static;
+.brand-mark {
   display: block;
   width: 100%;
-  height: auto;
-  max-width: none;
-  aspect-ratio: auto;
+  aspect-ratio: 800 / 407;
+  /* The 78% stop sits in the transparent gap above the wordmark. */
+  background: linear-gradient(#f96a22 78%, var(--text) 78%);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
 }
 .hero-visual {
   left: 0;
@@ -2064,6 +2049,25 @@ figcaption {
 .contact-data > div {
   border-bottom-color: color-mix(in srgb, var(--line) 65%, transparent);
 }
+.contact-value {
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-style: normal;
+  line-height: 1.6;
+}
+a.contact-value:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .contact-data > div {
+    grid-template-columns: 25px minmax(0, 1fr);
+  }
+  .contact-value {
+    grid-column: 2;
+  }
+}
 @media (max-width: 1000px) {
   .brand {
     width: 118px;
@@ -2076,9 +2080,6 @@ figcaption {
 @media (max-width: 700px) {
   .brand {
     width: 100px;
-    height: auto;
-  }
-  .brand img {
     height: auto;
   }
   .hero-content {

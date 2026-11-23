@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { m, useReducedMotion } from "motion/react";
 import assets from "../content/assets.json";
 import views from "../content/showcase.json";
-import { copy, projectName } from "../content/site";
+import { projectName } from "../content/site";
 
 export type ImageId = keyof typeof assets.images;
 export function Arrow({ up = false }: { up?: boolean }) {
@@ -201,7 +201,7 @@ export function ContactStrip() {
         <Arrow />
       </Link>
       <div className="contact-strip-bottom">
-        <p>{copy.short}</p>
+        <p>Tell us what you’re planning and where you’d like to begin.</p>
         <Link className="text-link" to="/contact">
           Contact <Arrow />
         </Link>

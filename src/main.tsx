@@ -115,11 +115,10 @@ function Header() {
   return (
     <header className="site-header" onPointerOver={warmPage} onFocus={warmPage}>
       <HomeLink className="brand" label="Asterisk Design Studio home">
-        <img
-          src={assets.logo}
-          width="800"
-          height="407"
-          alt="Asterisk Design Studio"
+        <span
+          className="brand-mark"
+          style={{ maskImage: `url("${assets.logo}")` }}
+          aria-hidden="true"
         />
       </HomeLink>
       <nav className="desktop-nav" aria-label="Main navigation">

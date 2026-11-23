@@ -33,7 +33,7 @@ This workspace has not been linked to a Vercel account or deployed. No Vercel cr
 ## Content
 
 - Layouts: `src/pages/`.
-- Placeholder copy, filenames, and team entries: `src/content/site.ts`.
+- Studio copy, filenames, and team entries: `src/content/site.ts`.
 - Landing animation: `src/components/Hero.tsx`.
 - Team portrait frames and service layouts: `src/components/Team.tsx` and `src/components/Services.tsx`.
 - Shared interface elements: `src/components/UI.tsx`.
@@ -46,11 +46,11 @@ The homepage features the studio headquarters. Projects lists nine magazine entr
 
 The final 3:21 walkthrough uses a compressed 1080p H.264 MP4 with audio and loads only after a visitor selects Play. To move it to Cloudflare, replace `walkthroughUrl` in `src/components/Showcase.tsx` with the hosted MP4 URL and remove the local video once the new URL works.
 
-Magazine includes a page-by-page reader and a link to the supplied original flipbook. To regenerate the portfolio images, portraits, plans, logo study, and magazine from `final provided assets/`, run `python scripts/prepare-final-assets.py` with Pillow and PyMuPDF installed. Contact details are pending.
+Magazine includes a page-by-page reader and a link to the supplied original flipbook. To regenerate the portfolio images, portraits, plans, logo study, and magazine from `final provided assets/`, run `python scripts/prepare-final-assets.py` with Pillow and PyMuPDF installed. Contact details are in `src/pages/Contact.tsx`.
 
 ## Transparent logo
 
-The supplied logo was edited with the built-in image editing tool to remove its white background. The transparent master is `src/assets/asterisk-logo.png`; `node scripts/prepare-logo.mjs` creates a cropped, optimized, versioned WebP and updates the asset manifest. The original supplied JPEG remains untouched. Dark mode displays the same artwork in white through a CSS filter for legibility; light mode retains its original colors.
+The supplied logo was edited with the built-in image editing tool to remove its white background. The transparent master is `src/assets/asterisk-logo.png`. The command `node scripts/prepare-logo.mjs` creates a cropped, optimized, versioned WebP and updates the asset manifest. The header uses the artwork as a mask. The emblem uses the orange sampled from the Story of the Asterisk artwork, and the lettering follows the theme's text color.
 
 The header displays the full supplied logo, including its emblem, without cropping. The landing headline uses the studio name, without introductory filler. Open spacing, fewer rules, rounded project images, and arched portrait frames soften the page composition.
 

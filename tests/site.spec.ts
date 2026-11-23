@@ -138,7 +138,7 @@ test("gallery jumps to the chosen render and video loads only on request", async
     .poll(() => page.locator("video").evaluate((video) => video.readyState))
     .toBeGreaterThan(0);
   expect(videoRequests.length).toBeGreaterThan(0);
-  await page.getByRole("button", { name: /Open render gallery/ }).click();
+  await page.getByRole("button", { name: /Open actual studio/ }).click();
   await expect(
     page.getByRole("dialog", { name: "Render gallery" }),
   ).toBeVisible();
@@ -170,7 +170,7 @@ test("gallery jumps to the chosen render and video loads only on request", async
     .getByRole("link", { name: "Projects", exact: true })
     .click();
   const galleryButton = page.getByRole("button", {
-    name: /Open render gallery/,
+    name: /Open actual studio/,
   });
   await galleryButton.click();
   await expect(
@@ -199,7 +199,7 @@ test("the gallery shows loading previews and stays usable if a thumbnail fails",
   );
   try {
     await page.goto("/projects");
-    await page.getByRole("button", { name: /Open render gallery/ }).click();
+    await page.getByRole("button", { name: /Open actual studio/ }).click();
     const dialog = page.getByRole("dialog", { name: "Render gallery" });
     const loader = dialog.getByRole("status", {
       name: "Loading gallery previews",
