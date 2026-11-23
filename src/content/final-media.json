@@ -2,14 +2,14 @@
   "projects": {
     "guevara-heights": [
       {
-        "src": "/images/final-v1/guevara-heights-1.webp",
-        "width": 1600,
-        "height": 1126
-      },
-      {
         "src": "/images/final-v1/guevara-heights-2.webp",
         "width": 1600,
         "height": 1177
+      },
+      {
+        "src": "/images/final-v1/guevara-heights-1.webp",
+        "width": 1600,
+        "height": 1126
       },
       {
         "src": "/images/final-v1/guevara-heights-3.webp",

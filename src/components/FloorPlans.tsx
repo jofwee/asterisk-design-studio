@@ -4,8 +4,6 @@ import media from "../content/final-media.json";
 const sheets = [
   ["ground", "Ground floor"],
   ["second", "Second floor"],
-  ["overview", "Floor plan overview"],
-  ["dimensions", "Dimensioned plans"],
 ] as const;
 
 export function FloorPlans() {

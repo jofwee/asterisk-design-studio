@@ -22,25 +22,25 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --bg: #131d24;
-  --header-line: #445969;
-  --surface: #1c2932;
-  --text: #eef2f4;
-  --muted: #a3b1b9;
-  --line: #344651;
-  --accent: #c2a184;
+  --bg: #202b3b;
+  --header-line: #4b607f;
+  --surface: #33455d;
+  --text: #e8d8c9;
+  --muted: #cec2b8;
+  --line: #4b607f;
+  --accent: #dda17d;
   --gutter: clamp(22px, 4.2vw, 84px);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #edf1f3;
-  --header-line: #b0c1cc;
-  --surface: #dfe6ea;
-  --text: #1d303d;
-  --muted: #516570;
-  --line: #c4d0d7;
-  --accent: #785a42;
+  --bg: #e8d8c9;
+  --header-line: #aaabb2;
+  --surface: #f4e8dc;
+  --text: #252f40;
+  --muted: #4b607f;
+  --line: #b6acaa;
+  --accent: #88492d;
   color-scheme: light;
 }
 * {
@@ -289,7 +289,7 @@ figcaption {
   align-items: center;
   gap: 38px;
   padding: 14px 18px;
-  background: #eef2f4;
+  background: #e8d8c9;
   color: #191917;
   font-size: 11px;
 }
@@ -1221,28 +1221,28 @@ figcaption {
   background:
     linear-gradient(
       90deg,
-      #131d24 0%,
-      rgba(19, 29, 36, 0.94) 18%,
-      rgba(19, 29, 36, 0.55) 42%,
-      rgba(19, 29, 36, 0.06) 75%
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 94%, transparent) 18%,
+      color-mix(in srgb, var(--bg) 55%, transparent) 42%,
+      color-mix(in srgb, var(--bg) 6%, transparent) 75%
     ),
     linear-gradient(
       0deg,
-      rgba(19, 29, 36, 0.9) 0%,
+      color-mix(in srgb, var(--bg) 90%, transparent) 0%,
       transparent 30%,
-      rgba(19, 29, 36, 0.15) 100%
+      color-mix(in srgb, var(--bg) 15%, transparent) 100%
     );
 }
 :root[data-theme="light"] .hero-shade {
   background:
     linear-gradient(
       90deg,
-      #edf1f3 0%,
-      rgba(237, 241, 243, 0.95) 18%,
-      rgba(237, 241, 243, 0.6) 40%,
-      rgba(237, 241, 243, 0.02) 75%
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 95%, transparent) 18%,
+      color-mix(in srgb, var(--bg) 60%, transparent) 40%,
+      color-mix(in srgb, var(--bg) 2%, transparent) 75%
     ),
-    linear-gradient(0deg, rgba(237, 241, 243, 0.95), transparent 30%);
+    linear-gradient(0deg, color-mix(in srgb, var(--bg) 95%, transparent), transparent 30%);
 }
 .hero-guide {
   position: absolute;
@@ -1271,7 +1271,7 @@ figcaption {
 }
 .hero-topline > .eyebrow:last-child {
   color: #eee9df;
-  text-shadow: 0 1px 15px #131d24;
+  text-shadow: 0 1px 15px #202b3b;
 }
 .hero-content {
   padding-top: clamp(95px, 12vh, 170px);
@@ -1375,10 +1375,10 @@ figcaption {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  color: #eef2f4;
-  border-top: 1px solid #eef2f470;
+  color: #e8d8c9;
+  border-top: 1px solid #e8d8c970;
   padding: 20px 0 0;
-  text-shadow: 0 1px 10px #131d2480;
+  text-shadow: 0 1px 10px #202b3b80;
 }
 .hero-project-note .eyebrow {
   color: #e0dacf;
@@ -1681,26 +1681,26 @@ figcaption {
   }
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(19, 29, 36, 0.88), rgba(19, 29, 36, 0.22)),
+      linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent), color-mix(in srgb, var(--bg) 22%, transparent)),
       linear-gradient(
         0deg,
-        #131d24 0%,
-        rgba(19, 29, 36, 0.15) 55%,
-        rgba(19, 29, 36, 0.5) 100%
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 15%, transparent) 55%,
+        color-mix(in srgb, var(--bg) 50%, transparent) 100%
       );
   }
   :root[data-theme="light"] .hero-shade {
     background:
       linear-gradient(
         90deg,
-        rgba(237, 241, 243, 0.92),
-        rgba(237, 241, 243, 0.15)
+        color-mix(in srgb, var(--bg) 92%, transparent),
+        color-mix(in srgb, var(--bg) 15%, transparent)
       ),
       linear-gradient(
         0deg,
-        #edf1f3 0%,
-        rgba(237, 241, 243, 0.12) 55%,
-        rgba(237, 241, 243, 0.5) 100%
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 12%, transparent) 55%,
+        color-mix(in srgb, var(--bg) 50%, transparent) 100%
       );
   }
   .hero-topline {
@@ -2287,7 +2287,7 @@ html {
 .floor-plan-grid {
   gap: 14px;
   margin-top: 24px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .floor-plan-grid button {
   min-width: 0;
@@ -2518,7 +2518,7 @@ html:has(.gallery-dialog[open]) {
   overflow: hidden;
 }
 .gallery-dialog::backdrop {
-  background: rgb(10 16 22 / 52%);
+  background: rgb(17 24 36 / 58%);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
@@ -2763,7 +2763,7 @@ html:has(.gallery-dialog[open]) {
   aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
-  background: #101820;
+  background: #151e2a;
 }
 .walkthrough-cover {
   position: relative;

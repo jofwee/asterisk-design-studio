@@ -65,6 +65,8 @@ projects = {
 media = {}
 for slug, files in projects.items():
     media[slug] = [save(source_image(renders / name), f"{slug}-{i}") for i, name in enumerate(files, 1)]
+# Keep the published filenames stable and feature the exterior before the lounge.
+media["guevara-heights"][:2] = reversed(media["guevara-heights"][:2])
 media["monreal-residence-1"] = [save(page_image(25, (42, 481, 546, 776), 2.8), "monreal-residence-1")]
 media["monreal-residence-2"] = [save(page_image(27, (42, 481, 546, 776), 2.8), "monreal-residence-2")]
 media["saluhan"] = [save(page_image(29, (201, 248, 524, 447), 3), "saluhan-1")]
