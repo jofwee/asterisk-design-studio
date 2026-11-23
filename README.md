@@ -42,11 +42,11 @@ This workspace has not been linked to a Vercel account or deployed. No Vercel cr
 - Routing, navigation, and theme persistence: `src/main.tsx`.
 - Original design and implementation requirements: `plan.md`.
 
-The supplied renders are presented as one provisional studio project, using `Scene 4_1.png` as its temporary name. Gallery views retain their filenames and can be filtered by exterior or interior. Run `node scripts/prepare-showcase.mjs` to refresh thumbnails and responsive images from the source folder.
+The homepage features the studio headquarters. Projects lists nine magazine entries, including Monreal Residence 1 in Tarlac and Monreal Residence 2 in Makati. The headquarters page includes the original floor-plan drawings and a gallery filtered by exterior or interior. Run `node scripts/prepare-showcase.mjs` to refresh the headquarters gallery.
 
-The walkthrough uses a compressed MP4 in `public/images` and loads only after a visitor selects Play. To move it to Cloudflare, replace `walkthroughUrl` in `src/components/Showcase.tsx` with the hosted MP4 URL and remove the local video once the new URL works.
+The final 3:21 walkthrough uses a compressed 1080p H.264 MP4 with audio and loads only after a visitor selects Play. To move it to Cloudflare, replace `walkthroughUrl` in `src/components/Showcase.tsx` with the hosted MP4 URL and remove the local video once the new URL works.
 
-Missing contact values, portraits, five team profiles, and the logo construction artwork remain placeholders. The firm background, mission, vision, logo story, and service names are based on the supplied studio brief.
+Magazine includes a page-by-page reader and a link to the supplied original flipbook. To regenerate the portfolio images, portraits, plans, logo study, and magazine from `final provided assets/`, run `python scripts/prepare-final-assets.py` with Pillow and PyMuPDF installed. Contact details are pending.
 
 ## Transparent logo
 

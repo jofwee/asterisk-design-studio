@@ -37,7 +37,7 @@ test("routes, images, theme persistence, history, and missing projects", async (
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await expect(page.locator(".team-card")).toHaveCount(6);
-  await expect(page.locator(".team-card img")).toHaveCount(0);
+  await expect(page.locator(".team-card img")).toHaveCount(6);
   await expect(
     page.getByRole("heading", { name: "Meet the team." }),
   ).toHaveCount(1);
@@ -49,7 +49,9 @@ test("routes, images, theme persistence, history, and missing projects", async (
     .getByRole("link", { name: "View Scene 3_1.png", exact: true })
     .click();
   await expect(page).toHaveURL(/\/projects\/project-01$/);
-  await expect(page.locator("h1")).toHaveText("Scene 4_1.png.");
+  await expect(page.locator("h1")).toHaveText(
+    "Asterisk Design Studio Headquarters.",
+  );
   await expect(page.locator("main")).toBeFocused();
   await page.goBack();
   await expect(page.locator("h1")).toHaveAccessibleName(
@@ -81,12 +83,50 @@ test("routes, images, theme persistence, history, and missing projects", async (
   expect(failures).toEqual([]);
 });
 
+test("portfolio entries, floor plans, and magazine use the final assets", async ({
+  page,
+}) => {
+  await page.goto("/projects");
+  await expect(page.locator(".portfolio-card")).toHaveCount(9);
+  await page.getByRole("link", { name: /Monreal Residence 1/ }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Monreal Residence 1",
+  );
+  await expect(page.locator(".project-intro")).toContainText("Tarlac City");
+  await page.getByRole("link", { name: "Back to Projects" }).click();
+  await page.getByRole("link", { name: /Monreal Residence 2/ }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Monreal Residence 2",
+  );
+  await expect(page.locator(".project-intro")).toContainText("Makati City");
+  await page.goto("/projects/project-01");
+  await page.getByRole("button", { name: "Second floor", exact: true }).click();
+  const plan = page.getByRole("dialog", { name: "Second floor" });
+  await expect(
+    plan.getByRole("link", { name: "Open full-size drawing" }),
+  ).toHaveAttribute("href", /plan-second\.png$/);
+  await page.keyboard.press("Escape");
+  await expect(plan).toBeHidden();
+  await page.goto("/magazine");
+  await expect(page.getByRole("status")).toHaveText("Page 1 of 32");
+  await page.locator(".book-stage").hover();
+  await page.mouse.wheel(0, 180);
+  await expect(page.getByRole("status")).toHaveText("Page 2 of 32");
+  await expect(
+    page.getByAltText("Asterisk Design Studio magazine, page 3"),
+  ).toBeVisible();
+  await page
+    .getByLabel("Jump to a chapter")
+    .selectOption({ label: "The studio mark" });
+  await expect(page.getByRole("status")).toHaveText("Page 32 of 32");
+});
+
 test("gallery jumps to the chosen render and video loads only on request", async ({
   page,
 }) => {
   const videoRequests: string[] = [];
   page.on("request", (request) => {
-    if (request.url().endsWith("/studio-walkthrough-v1.mp4"))
+    if (request.url().endsWith("/firm-walkthrough-v2.mp4"))
       videoRequests.push(request.url());
   });
   await page.goto("/");
@@ -176,7 +216,7 @@ test("the gallery shows loading previews and stays usable if a thumbnail fails",
   }
 });
 
-test("home interiors rotate in view and support manual navigation", async ({
+test("home interiors advance with the wheel and support manual navigation", async ({
   page,
 }) => {
   await page.goto("/");
@@ -185,15 +225,19 @@ test("home interiors rotate in view and support manual navigation", async ({
     .filter({
       has: page.getByRole("heading", { name: "Interior perspectives." }),
     });
-  await section.locator(".interior-track").scrollIntoViewIfNeeded();
-  await expect(section.getByText("View 2 of 6", { exact: true })).toBeVisible({
-    timeout: 9000,
-  });
+  await section.locator(".interior-track").hover();
+  await section.getByRole("button", { name: "Previous", exact: true }).click();
+  await expect(section.getByRole("status")).toHaveText("View 6 of 6");
   await section.getByRole("button", { name: "Next", exact: true }).click();
-  await expect(section.getByText("View 3 of 6", { exact: true })).toBeVisible();
-  await expect(
-    section.getByRole("button", { name: /rotation/i }),
-  ).toHaveCount(0);
+  await expect(section.getByRole("status")).toHaveText("View 1 of 6");
+  await section.locator(".interior-track").hover();
+  await page.mouse.wheel(0, 180);
+  await expect(section.getByRole("status")).toHaveText("View 2 of 6");
+  await section.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(section.getByRole("status")).toHaveText("View 3 of 6");
+  await expect(section.getByRole("button", { name: /rotation/i })).toHaveCount(
+    0,
+  );
   await section
     .getByRole("link", { name: "Open full-size render: Workstations" })
     .click();

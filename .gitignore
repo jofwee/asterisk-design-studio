@@ -3,6 +3,7 @@ dist/
 .vercel/
 *.local
 provided images/
+final provided assets/
 *.tsbuildinfo
 test-results/
 playwright-report/

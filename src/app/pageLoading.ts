@@ -2,7 +2,7 @@ import type { ComponentType, SyntheticEvent } from "react";
 
 type PageModule = { default: ComponentType };
 export const readyPages: Partial<
-  Record<"projects" | "project" | "about" | "contact", ComponentType>
+  Record<"projects" | "project" | "about" | "contact" | "magazine", ComponentType>
 > = {};
 function cached(
   name: keyof typeof readyPages,
@@ -26,6 +26,7 @@ export const pageLoaders = {
   project: cached("project", () => import("../pages/Project")),
   about: cached("about", () => import("../pages/About")),
   contact: cached("contact", () => import("../pages/Contact")),
+  magazine: cached("magazine", () => import("../pages/Magazine")),
 };
 
 export function preloadPage(pathname: string): Promise<unknown> {
@@ -33,6 +34,7 @@ export function preloadPage(pathname: string): Promise<unknown> {
   if (pathname.startsWith("/projects/")) return pageLoaders.project();
   if (pathname === "/about") return pageLoaders.about();
   if (pathname === "/contact") return pageLoaders.contact();
+  if (pathname === "/magazine") return pageLoaders.magazine();
   return Promise.resolve();
 }
 

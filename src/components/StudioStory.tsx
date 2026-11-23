@@ -1,5 +1,6 @@
 import { studio } from "../content/site";
 import { Reveal } from "./UI";
+import media from "../content/final-media.json";
 
 export function StudioStory() {
   return (
@@ -57,9 +58,13 @@ export function LogoStory() {
         </Reveal>
         <Reveal direction="right">
           <figure className="logo-study">
-            <div className="logo-study-placeholder">
-              Logo construction artwork to be added
-            </div>
+            <img
+              className="logo-study-art"
+              {...media.logo}
+              alt="Construction grid and five components of the Asterisk studio mark"
+              loading="lazy"
+              decoding="async"
+            />
             <figcaption>
               <ul aria-label="Elements of the studio mark">
                 {[

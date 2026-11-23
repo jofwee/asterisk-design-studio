@@ -1,0 +1,368 @@
+{
+  "projects": {
+    "guevara-heights": [
+      {
+        "src": "/images/final-v1/guevara-heights-1.webp",
+        "width": 1600,
+        "height": 1126
+      },
+      {
+        "src": "/images/final-v1/guevara-heights-2.webp",
+        "width": 1600,
+        "height": 1177
+      },
+      {
+        "src": "/images/final-v1/guevara-heights-3.webp",
+        "width": 1600,
+        "height": 1420
+      },
+      {
+        "src": "/images/final-v1/guevara-heights-4.webp",
+        "width": 778,
+        "height": 515
+      }
+    ],
+    "polilo-residence": [
+      {
+        "src": "/images/final-v1/polilo-residence-1.webp",
+        "width": 1600,
+        "height": 1127
+      },
+      {
+        "src": "/images/final-v1/polilo-residence-2.webp",
+        "width": 1600,
+        "height": 1127
+      },
+      {
+        "src": "/images/final-v1/polilo-residence-3.webp",
+        "width": 1600,
+        "height": 1127
+      },
+      {
+        "src": "/images/final-v1/polilo-residence-4.webp",
+        "width": 1600,
+        "height": 1127
+      },
+      {
+        "src": "/images/final-v1/polilo-residence-5.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/images/final-v1/polilo-residence-6.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kirigun-residence": [
+      {
+        "src": "/images/final-v1/kirigun-residence-1.webp",
+        "width": 1462,
+        "height": 822
+      },
+      {
+        "src": "/images/final-v1/kirigun-residence-2.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "victorian-heights": [
+      {
+        "src": "/images/final-v1/victorian-heights-1.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "plumeria": [
+      {
+        "src": "/images/final-v1/plumeria-1.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "siloy": [
+      {
+        "src": "/images/final-v1/siloy-1.webp",
+        "width": 1097,
+        "height": 709
+      },
+      {
+        "src": "/images/final-v1/siloy-2.webp",
+        "width": 1600,
+        "height": 1127
+      },
+      {
+        "src": "/images/final-v1/siloy-3.webp",
+        "width": 861,
+        "height": 606
+      },
+      {
+        "src": "/images/final-v1/siloy-4.webp",
+        "width": 1122,
+        "height": 770
+      },
+      {
+        "src": "/images/final-v1/siloy-5.webp",
+        "width": 1058,
+        "height": 754
+      },
+      {
+        "src": "/images/final-v1/siloy-6.webp",
+        "width": 1104,
+        "height": 645
+      },
+      {
+        "src": "/images/final-v1/siloy-7.webp",
+        "width": 1103,
+        "height": 707
+      },
+      {
+        "src": "/images/final-v1/siloy-8.webp",
+        "width": 862,
+        "height": 607
+      }
+    ],
+    "monreal-residence-1": [
+      {
+        "src": "/images/final-v1/monreal-residence-1.webp",
+        "width": 1412,
+        "height": 827
+      }
+    ],
+    "monreal-residence-2": [
+      {
+        "src": "/images/final-v1/monreal-residence-2.webp",
+        "width": 1412,
+        "height": 827
+      }
+    ],
+    "saluhan": [
+      {
+        "src": "/images/final-v1/saluhan-1.webp",
+        "width": 969,
+        "height": 597
+      }
+    ]
+  },
+  "portraits": {
+    "capuras": {
+      "src": "/images/final-v1/team-capuras-tall.webp",
+      "width": 1000,
+      "height": 1414
+    },
+    "nialda": {
+      "src": "/images/final-v1/team-nialda-tall.webp",
+      "width": 1000,
+      "height": 1414
+    },
+    "murias": {
+      "src": "/images/final-v1/team-murias-tall.webp",
+      "width": 1000,
+      "height": 1414
+    },
+    "guevara": {
+      "src": "/images/final-v1/team-guevara-tall.webp",
+      "width": 1000,
+      "height": 1414
+    },
+    "aspuria": {
+      "src": "/images/final-v1/team-aspuria-tall.webp",
+      "width": 1000,
+      "height": 1414
+    },
+    "fajilagutan": {
+      "src": "/images/final-v1/team-fajilagutan-tall.webp",
+      "width": 1000,
+      "height": 1414
+    }
+  },
+  "plans": {
+    "ground": {
+      "src": "/images/final-v1/plan-ground.png",
+      "width": 414,
+      "height": 487
+    },
+    "second": {
+      "src": "/images/final-v1/plan-second.png",
+      "width": 376,
+      "height": 485
+    },
+    "overview": {
+      "src": "/images/final-v1/plan-overview.png",
+      "width": 1600,
+      "height": 1280
+    },
+    "dimensions": {
+      "src": "/images/final-v1/plan-dimensions.png",
+      "width": 1600,
+      "height": 1280
+    }
+  },
+  "logo": {
+    "src": "/images/final-v1/logo-study-transparent.webp",
+    "width": 1000,
+    "height": 1243
+  },
+  "magazine": [
+    {
+      "src": "/images/final-v1/magazine-01.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-02.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-03.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-04.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-05.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-06.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-07.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-08.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-09.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-10.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-11.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-12.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-13.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-14.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-15.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-16.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-17.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-18.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-19.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-20.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-21.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-22.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-23.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-24.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-25.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-26.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-27.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-28.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-29.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-30.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-31.webp",
+      "width": 1340,
+      "height": 1894
+    },
+    {
+      "src": "/images/final-v1/magazine-32.webp",
+      "width": 1340,
+      "height": 1894
+    }
+  ]
+}

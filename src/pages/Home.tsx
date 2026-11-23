@@ -13,6 +13,8 @@ import { Services } from "../components/Services";
 import { RenderGallery, Walkthrough } from "../components/Showcase";
 import { LogoStory, StudioStory } from "../components/StudioStory";
 import { InteriorGallery } from "../components/InteriorGallery";
+import { PortfolioGrid } from "../components/Portfolio";
+import { featuredPortfolio } from "../content/portfolio";
 export function Home() {
   return (
     <div className="home-sections">
@@ -20,16 +22,19 @@ export function Home() {
       <section id="projects" className="work-section">
         <Reveal stagger>
           <RevealItem className="section-top">
-            <SectionLabel number="01">Selected work</SectionLabel>
+            <SectionLabel number="01">The headquarters</SectionLabel>
             <Link className="text-link" to="/projects">
               All Projects <Arrow />
             </Link>
           </RevealItem>
           <RevealItem className="section-heading">
             <h2>
-              Selected works<span className="title-period">.</span>
+              Inside the studio<span className="title-period">.</span>
             </h2>
-            <p>Exterior and interior renderings for Asterisk Design Studio.</p>
+            <p>
+              Explore the Asterisk Design Studio headquarters in Vermosa, Imus,
+              Cavite.
+            </p>
           </RevealItem>
           <RevealItem image>
             <ProjectCard />
@@ -39,6 +44,20 @@ export function Home() {
       </section>
       <InteriorGallery />
       <Walkthrough />
+      <section
+        className="home-portfolio"
+        aria-labelledby="home-portfolio-title"
+      >
+        <Reveal className="showcase-heading">
+          <h2 id="home-portfolio-title">
+            Selected works<span className="title-period">.</span>
+          </h2>
+          <Link className="text-link" to="/projects">
+            View all projects <Arrow />
+          </Link>
+        </Reveal>
+        <PortfolioGrid projects={featuredPortfolio} />
+      </section>
       <StudioStory />
       <LogoStory />
       <Services />

@@ -21,6 +21,7 @@ import { Arrow } from "./components/UI";
 import { HomeLink } from "./components/HomeLink";
 import assets from "./content/assets.json";
 import { projectName } from "./content/site";
+import { portfolio } from "./content/portfolio";
 import {
   preloadPage,
   prepareFonts,
@@ -123,7 +124,7 @@ function Header() {
       </HomeLink>
       <nav className="desktop-nav" aria-label="Main navigation">
         <HomeLink>Home</HomeLink>
-        {["Projects", "About", "Contact"].map((label) => (
+        {["Projects", "About", "Magazine", "Contact"].map((label) => (
           <NavLink key={label} to={`/${label.toLowerCase()}`}>
             {label}
           </NavLink>
@@ -157,7 +158,7 @@ function Header() {
             <span>00</span>Home
             <Arrow />
           </HomeLink>
-          {["Projects", "About", "Contact"].map((label, i) => (
+          {["Projects", "About", "Magazine", "Contact"].map((label, i) => (
             <NavLink key={label} to={`/${label.toLowerCase()}`}>
               <span>0{i + 1}</span>
               {label}
@@ -242,19 +243,29 @@ function Site() {
   useLayoutEffect(() => {
     if (!loading && displayedLocation) {
       const anchor = document.getElementById(displayedLocation.hash.slice(1));
-      (anchor ?? document.getElementById("main"))?.focus({ preventScroll: true });
+      (anchor ?? document.getElementById("main"))?.focus({
+        preventScroll: true,
+      });
     }
   }, [loading, viewVersion]);
   const Projects = readyPages.projects ?? EmptyPage;
   const Project = readyPages.project ?? EmptyPage;
   const About = readyPages.about ?? EmptyPage;
   const Contact = readyPages.contact ?? EmptyPage;
+  const Magazine = readyPages.magazine ?? EmptyPage;
   useEffect(() => {
     const name =
       location.pathname === "/"
         ? "Home"
         : location.pathname.startsWith("/projects/")
-          ? projectName
+          ? (portfolio.find(
+              (project) =>
+                project.slug ===
+                location.pathname.split("/").filter(Boolean).at(-1),
+            )?.title ??
+            (location.pathname.replace(/\/$/, "") === "/projects/project-01"
+              ? projectName
+              : "Project not found"))
           : location.pathname.slice(1).replace(/^./, (c) => c.toUpperCase());
     document.title = `${name} — Asterisk Design Studio`;
   }, [location.pathname]);
@@ -298,6 +309,7 @@ function Site() {
                   <Route path="/projects/:slug" element={<Project />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/magazine" element={<Magazine />} />
                   <Route
                     path="*"
                     element={
@@ -326,6 +338,7 @@ function Site() {
           <HomeLink>Home</HomeLink>
           <Link to="/projects">Projects</Link>
           <Link to="/about">About</Link>
+          <Link to="/magazine">Magazine</Link>
           <Link to="/contact">Contact</Link>
         </nav>
         <button

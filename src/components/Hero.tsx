@@ -60,9 +60,9 @@ export function Hero() {
           transition={{ duration: 0.75, delay: 0.5, ease }}
         >
           <div className="hero-actions">
-            <Link className="primary-link" to="/projects">
-              Explore our work <Arrow />
-            </Link>
+            <a className="primary-link" href="#projects">
+              Explore the headquarters <Arrow />
+            </a>
             <Link className="hero-about-link" to="/about">
               Discover the studio <Arrow />
             </Link>

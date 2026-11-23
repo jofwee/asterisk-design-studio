@@ -9,7 +9,7 @@
     { "source": "/about", "destination": "/index.html" },
     { "source": "/contact", "destination": "/index.html" },
     {
-      "source": "/((?!assets/|images/|brand/|robots.txt).*)",
+      "source": "/((?!assets/|images/|brand/|edition/|robots.txt).*)",
       "destination": "/index.html"
     }
   ],

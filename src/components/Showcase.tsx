@@ -19,6 +19,7 @@ export function RenderGallery({
   children?: (openGallery: () => void) => ReactNode;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const thumbnails = useRef<HTMLDivElement>(null);
   const headingId = useId();
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("All views");
@@ -86,7 +87,10 @@ export function RenderGallery({
                   aria-pressed={filter === group}
                   onClick={() => {
                     setFilter(group);
-                    dialog.current?.scrollTo({ top: 0, behavior: "instant" });
+                    thumbnails.current?.scrollTo({
+                      top: 0,
+                      behavior: "instant",
+                    });
                   }}
                 >
                   {group}
@@ -99,7 +103,7 @@ export function RenderGallery({
               )}
             </div>
           </div>
-          <div className="showcase-thumbnails">
+          <div className="showcase-thumbnails" ref={thumbnails}>
             {isOpen &&
               pictures.map((view, index) => {
                 const state = thumbnailStates[view.id];
@@ -202,7 +206,7 @@ export function ShowcaseViews({
 }
 
 // Replace this URL with the hosted MP4 when the walkthrough moves to Cloudflare.
-const walkthroughUrl = "/images/studio-walkthrough-v1.mp4";
+const walkthroughUrl = "/images/firm-walkthrough-v2.mp4";
 
 export function Walkthrough() {
   const [playing, setPlaying] = useState(false);
@@ -218,9 +222,9 @@ export function Walkthrough() {
       <div className="showcase-heading">
         <div>
           <span className="eyebrow">The studio in motion</span>
-          <h2 id="walkthrough-heading">Exterior walkthrough</h2>
+          <h2 id="walkthrough-heading">Firm walkthrough</h2>
         </div>
-        <span className="eyebrow">1 min 03 sec</span>
+        <span className="eyebrow">3 min 21 sec</span>
       </div>
       {playing ? (
         <video
@@ -229,7 +233,6 @@ export function Walkthrough() {
           controls
           autoPlay
           playsInline
-          muted
           aria-labelledby="walkthrough-heading"
         >
           <a href={walkthroughUrl}>Download the walkthrough</a>
