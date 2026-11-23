@@ -8,33 +8,33 @@ import { useWheelStep } from "./useWheelStep";
 const selections = [
   {
     id: "view-image-13",
-    title: "Sunlit lounge",
+    title: "Break Out Room",
     alt: "Timber seating and glazed walls beneath a slatted ceiling",
   },
   {
     id: "view-image-3",
-    title: "Reception",
-    alt: "Reception desk with the Asterisk emblem on the wall behind it",
+    title: "CADD/BIM Production Office",
+    alt: "Two figures near a workstation framed by timber slats",
   },
   {
     id: "view-image-2",
-    title: "Workstations",
+    title: "Design Assistant Production Area & Architectural Design Office",
     alt: "Desks along a timber wall and a screen of vertical slats",
   },
   {
     id: "view-image-5",
-    title: "Window-side seating",
-    alt: "Seating beside full-height windows with trees outside",
+    title: "Principal Architect Office",
+    alt: "Office desk and seating beside full-height windows with trees outside",
   },
   {
     id: "view-image-11",
-    title: "Meeting room",
+    title: "Conference Room",
     alt: "A white meeting table and chairs beside a slatted partition",
   },
   {
     id: "view-image-10",
-    title: "Studio corridor",
-    alt: "A long interior corridor with glazing along one side",
+    title: "Reception Area",
+    alt: "Reception seating beside a glazed corridor",
   },
 ];
 

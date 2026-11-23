@@ -239,7 +239,9 @@ test("home interiors advance with the wheel and support manual navigation", asyn
     0,
   );
   await section
-    .getByRole("link", { name: "Open full-size render: Workstations" })
+    .getByRole("link", {
+      name: "Open full-size render: Design Assistant Production Area & Architectural Design Office",
+    })
     .click();
   await expect(page).toHaveURL(/project-01#view-image-2$/);
   await expect(page.locator("#view-image-2")).toBeFocused();
